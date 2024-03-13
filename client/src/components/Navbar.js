@@ -12,20 +12,21 @@ const Navbar = () => {
 
     const handleMenuClick = (section) => {
         setActiveSection(section);
-        const element = document.getElementById(section);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
+        scrollToSection(section);
+
     };
+
     const handleCollapse = (section) => {
         setActiveSection(section);
+        scrollToSection(section);
+        onToggle(false);
+    };
 
+    const scrollToSection = (section) => {
         const element = document.getElementById(section);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        onToggle(false);
-
     };
     return (
         <Box bgGradient="linear(to-r,white,gray.50)" color={'blue.900'} boxShadow="lg" width={'100%'} position={'fixed'} zIndex={20}>
@@ -39,8 +40,15 @@ const Navbar = () => {
             >
 
                 <Flex fontSize="2xl" fontWeight="600">
-                    {/* <IoIosFlower /> */}
-                    <Text as={'span'} fontSize={'md'} fontFamily={'cursive'}> Prakriti Bhattarai</Text>
+                    <Link
+                        to={'/'}
+                        as="a"
+                        fontSize="md"
+                        fontFamily="cursive"
+                        _hover={{ textDecoration: "none" }} // Removes underline on hover
+                    >
+                        Prakriti Bhattarai
+                    </Link>
                 </Flex>
                 <Flex
                     display={['none', 'none', 'flex', 'flex']}
@@ -50,7 +58,7 @@ const Navbar = () => {
                     fontSize={'14px'}
                 >
                     <Link
-                        href="#"
+
                         className={`menu-link ${activeSection === 'about' && 'active'}`}
                         onClick={() => handleMenuClick('about')}
                         fontWeight={'bold'}
@@ -58,7 +66,6 @@ const Navbar = () => {
                         About
                     </Link>
                     <Link
-                        href="#"
                         className={`menu-link ${activeSection === 'projects' && 'active'}`}
                         onClick={() => handleMenuClick('projects')}
                         fontWeight={'bold'}
@@ -66,7 +73,6 @@ const Navbar = () => {
                         Projects
                     </Link>
                     <Link
-                        href="#"
                         className={`menu-link ${activeSection === 'skills' && 'active'}`}
                         onClick={() => handleMenuClick('skills')}
                         fontWeight={'bold'}
@@ -74,7 +80,6 @@ const Navbar = () => {
                         Skills
                     </Link>
                     <Link
-                        href="#"
                         className={`menu-link ${activeSection === 'contact' && 'active'}`}
                         onClick={() => handleMenuClick('contact')}
                         fontWeight={'bold'}
@@ -102,10 +107,13 @@ const Navbar = () => {
                 </Box>
             </Flex>
 
-            <Collapse in={isOpen} animateOpacity>
-                <Box p="1rem" bg="whiteAlpha.900" color="blackAlpha.900">
-                    <Menu color="white" bg="teal.500" rounded="md" shadow="md" id="collapse-menu">
+            <Collapse in={isOpen} animateOpacity d={{ base: "block", lg: "none" }}>
+                <Box p="1rem" bg="whiteAlpha.900" color="blue.900">
+                    <Menu color="white" bg="teal.500" rounded="md" shadow="md" id="collapse-menu"
+                    >
                         <MenuItem
+                            as='a'
+                            fontSize={'14px'} fontWeight={'bold'}
                             className={` ${activeSection === 'about' && 'active'}`}
                             onClick={() => handleCollapse('about')}
                         >
@@ -113,6 +121,8 @@ const Navbar = () => {
                         </MenuItem>
                         <MenuDivider />
                         <MenuItem
+                            as='a'
+                            fontSize={'14px'} fontWeight={'bold'}
                             className={` ${activeSection === 'skills' && 'active'}`}
                             onClick={() => handleCollapse('skills')}
                         >
@@ -120,6 +130,8 @@ const Navbar = () => {
                         </MenuItem>
                         <MenuDivider />
                         <MenuItem
+                            as='a'
+                            fontSize={'14px'} fontWeight={'bold'}
                             className={` ${activeSection === 'projects' && 'active'}`}
                             onClick={() => handleCollapse('projects')}
                         >
@@ -127,6 +139,8 @@ const Navbar = () => {
                         </MenuItem>
                         <MenuDivider />
                         <MenuItem
+                            as='a'
+                            fontSize={'14px'} fontWeight={'bold'}
                             className={` ${activeSection === 'contact' && 'active'}`}
                             onClick={() => handleCollapse('contact')}
                         >
