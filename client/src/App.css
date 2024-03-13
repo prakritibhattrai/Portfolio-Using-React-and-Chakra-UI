@@ -1,0 +1,141 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #f1f0ef;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Initially hide the logo */
+  transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+
+  /* Add any other styling you need for your logo container */
+}
+
+.animate {
+  opacity: 1; /* When 'animate' state is true, show the logo with opacity */
+}
+
+.menu {
+  text-decoration: none !important;
+}
+
+.menu-link {
+  text-decoration: none !important;
+  font-weight: 500; /* Make menu links slightly bold */
+  position: relative; /* Position relative for absolute border positioning */
+}
+
+.menu-link:hover {
+  text-decoration: none !important;
+  width: 100%; /* Expand border to cover the text on hover */
+  color: rgb(230, 101, 101);
+}
+.menu-link:active {
+  color: rgb(230, 101, 101);
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Apply bounce animation to the image */
+.image.bounce {
+  animation: bounce 2s 1;
+}
+
+/* Add transition effect to the title and description */
+.title,
+.description {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Apply translate animation to the title and description */
+.title {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.description {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+/* Apply transition effect when title and description become visible */
+.animated-content .title,
+.animated-content .description {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* styles.css */
+
+@keyframes vibrate {
+  from {
+    transform: translateY(-1px) 0.5s ease;
+  }
+  to {
+    transform: translateY(1px);
+  }
+}
+/* styles.css */
+
+.name-letter {
+  opacity: 0; /* Initially hide the letters */
+  animation: fade-in 0.5s ease-in-out forwards; /* Animation to fade in the letters */
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hover effect */
+.project-box:hover > .project-details {
+  opacity: 0.5;
+}
