@@ -20,6 +20,46 @@ const Projects = () => {
 
             <Flex justifyContent="space-between" flexWrap="wrap" maxW="960px" mx="auto" mt={8} gap={1}>
                 <Link
+                    href='https://honeycomb.ai/'
+                    target="_blank"
+                    boxShadow={'md'}
+                    width={['100%', 'calc(100%)', 'calc(33.33% - 5px)']}
+                    borderWidth="1px"
+                    borderColor="gray.300"
+                    _hover={{ boxShadow: 'md', bg: 'gray.100' }}
+                    textDecoration="none"
+                    // minHeight={'250px'}
+                    mt={2}
+                    p={5}
+                    bg={'gray.50'}
+                    role='group'
+                    position={'relative'}
+                >
+                    <Image src="https://honeycomb.ai/assets/images/mobile_app.png" height={'200px'} width={'100%'} alt="Project 1 Image" objectFit={'cover'} />
+                    <Box pt={2} >
+                        <Text fontDecoration={'underline'} fontWeight={'medium'} lineHeight={'24px'} color={'blue.800'} fontSize={'md'}>
+                            Ecommerce Website Using PHP, Laravel Framework
+                        </Text>
+                    </Box>
+                    <Icon
+                        _groupHover={{ visibility: 'visible' }}
+                        position="absolute"
+                        bottom="50%"
+                        left="50%"
+                        transform="translate(-50%, 50%)"
+                        visibility="hidden"
+                        border={'1px solid'}
+                        borderRadius={'sm'}
+                        color='blue.900'
+                        bg={'gray.200'}
+                        height={'35px'}
+                        w={'55px'}
+                        p={2}
+                        fontSize={'xl'}
+                        as={FaSearch}
+                    />
+                </Link>
+                <Link
                     href='https://ekabasket.com/'
                     target="_blank"
                     boxShadow={'md'}
